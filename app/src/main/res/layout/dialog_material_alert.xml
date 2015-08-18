@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="@dimen/d_dialog_width"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:paddingTop="@dimen/d_dialog_text_margin">
+
+    <FrameLayout
+        android:id="@+id/dialog_title_layout"
+        style="@style/s_dialog_title_layout_material_style"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/dialog_title_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/c_text_black_87"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/dialog_message_layout"
+        style="@style/s_dialog_message_layout_material_style">
+
+        <TextView
+            android:id="@+id/dialog_message_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/c_text_black_54"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/dialog_button_layout"
+        style="@style/s_dialog_button_layout_material_style">
+
+        <Button
+            android:id="@+id/dialog_negative_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:minWidth="88dp"
+            android:textAllCaps="true"
+            android:background="@android:color/transparent"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/dialog_positive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:minWidth="88dp"
+            android:background="@android:color/transparent"
+            android:textAllCaps="true"/>
+
+    </LinearLayout>
+</LinearLayout>
