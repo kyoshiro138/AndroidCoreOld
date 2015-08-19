@@ -13,6 +13,7 @@
         android:background="@color/c_text_white">
 
         <RelativeLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d_toolbar_height"
             android:background="@color/c_primary_color500">

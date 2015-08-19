@@ -1,8 +1,5 @@
 package com.jp.androidcore.appimplemetation.activity;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import com.jp.androidcore.R;
 import com.jp.androidcore.app.activitylist.ActivityListFragment;
 import com.jp.androidcore.appimplemetation.navigator.AppNavigator;
@@ -29,12 +26,6 @@ public class AppFragmentActivity extends BaseFragmentActivity
             mNavigator = new AppNavigator(getContentFragmentId(), getSupportFragmentManager(), null);
         }
         return mNavigator;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        Log.d(getPackageName(), "App Launched");
-        super.onCreate(savedInstanceState);
     }
 
     @Override

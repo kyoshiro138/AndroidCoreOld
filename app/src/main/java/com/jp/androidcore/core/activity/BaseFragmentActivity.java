@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 public abstract class BaseFragmentActivity extends FragmentActivity {
@@ -25,6 +26,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(getPackageName(), "App Launched");
         super.onCreate(savedInstanceState);
         setContentView(getActivityLayoutResource());
 
