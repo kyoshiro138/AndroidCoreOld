@@ -5,9 +5,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.jp.androidcore.R;
+import com.jp.androidcore.app.animation.AnimationFragment;
 import com.jp.androidcore.app.dialog.DialogSampleFragment;
-import com.jp.androidcore.app.test.TestFragment1;
-import com.jp.androidcore.app.test.TestFragment2;
 import com.jp.androidcore.appimplemetation.activity.drawer.AppDrawerActivity;
 import com.jp.androidcore.appimplemetation.fragment.AppFragment;
 
@@ -32,7 +31,7 @@ public class MenuFragment extends AppFragment<AppDrawerActivity> implements Adap
     protected void loadData() {
         List<String> menuList = new ArrayList<>();
         menuList.add("Dialog");
-        menuList.add("menu 2");
+        menuList.add("Animation");
 
         MenuListAdapter menuListAdapter = new MenuListAdapter(mActivity, menuList);
         mMenuList.setAdapter(menuListAdapter);
@@ -48,7 +47,7 @@ public class MenuFragment extends AppFragment<AppDrawerActivity> implements Adap
                 break;
             case 1:
                 if (getNavigator() != null) {
-                    getNavigator().navigateTo(new TestFragment2(), null);
+                    getNavigator().navigateTo(new AnimationFragment(), null);
                 }
                 break;
             default:

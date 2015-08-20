@@ -9,12 +9,15 @@ import com.jp.androidcore.app.menu.MenuFragment;
 import com.jp.androidcore.appimplemetation.activity.toolbar.AppToolbarViewHolder;
 import com.jp.androidcore.appimplemetation.navigator.AppNavigator;
 import com.jp.androidcore.core.activity.drawer.BaseDrawerActivity;
+import com.jp.androidcore.core.activity.toolbar.ToolbarActivity;
 import com.jp.androidcore.core.navigator.NavigationActivity;
 import com.jp.androidcore.core.navigator.menu.MenuActivity;
 import com.jp.androidcore.core.navigator.menu.OnMenuClosedListener;
 
 public class AppDrawerActivity extends BaseDrawerActivity
-        implements NavigationActivity<AppNavigator>, MenuActivity {
+        implements NavigationActivity<AppNavigator>,
+        ToolbarActivity<AppToolbarViewHolder>,
+        MenuActivity {
     private AppNavigator mNavigator;
     private OnMenuClosedListener mListener;
     private AppToolbarViewHolder mToolbar;
@@ -53,9 +56,17 @@ public class AppDrawerActivity extends BaseDrawerActivity
     }
 
     @Override
+    public AppToolbarViewHolder getToolbar() {
+        if (mToolbar == null) {
+            View toolbarView = findViewById(R.id.toolbar_layout);
+            mToolbar = new AppToolbarViewHolder(this, toolbarView);
+        }
+        return mToolbar;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initToolbar();
     }
 
     @Override
@@ -78,14 +89,5 @@ public class AppDrawerActivity extends BaseDrawerActivity
             mListener.onClosed();
             mListener = null;
         }
-    }
-
-    private void initToolbar() {
-        mToolbar = createToolbarViewHolder();
-    }
-
-    public AppToolbarViewHolder createToolbarViewHolder() {
-        View toolbarView = findViewById(R.id.toolbar_layout);
-        return new AppToolbarViewHolder(this, toolbarView);
     }
 }
