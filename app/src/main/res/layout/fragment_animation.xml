@@ -5,11 +5,15 @@
               android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_animation_appear"
+        android:id="@+id/btn_animation_zoom_out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="APPEAR ANIMATION"/>
-
+        android:text="ZOOM OUT ANIMATION"/>
+    <Button
+        android:id="@+id/btn_animation_fade_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FADE OUT ANIMATION"/>
     <FrameLayout
         android:id="@+id/view_animation"
         android:layout_width="wrap_content"

@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 
-public class AppearAnimator extends BaseAnimator implements ValueAnimator.AnimatorUpdateListener {
+public class ZoomInAnimator extends BaseAnimator implements ValueAnimator.AnimatorUpdateListener {
     private int mViewWidth;
     private int mViewHeight;
     private float mViewYPosition;
 
-    public AppearAnimator(View view, String tag) {
+    public ZoomInAnimator(View view) {
+        super(view);
+    }
+
+    public ZoomInAnimator(View view, String tag) {
         super(view, tag);
     }
 
@@ -21,7 +25,7 @@ public class AppearAnimator extends BaseAnimator implements ValueAnimator.Animat
         mViewHeight = view.getMeasuredHeight();
         mViewYPosition = view.getY();
 
-        ValueAnimator appearAnimation = ValueAnimator.ofInt(0, 100);
+        ValueAnimator appearAnimation = ValueAnimator.ofInt(100, 0);
         appearAnimation.setDuration(500);
         appearAnimation.addUpdateListener(this);
         appearAnimation.setInterpolator(new AccelerateInterpolator());

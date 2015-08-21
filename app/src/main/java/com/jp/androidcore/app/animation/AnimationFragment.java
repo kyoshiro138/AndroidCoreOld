@@ -1,18 +1,18 @@
 package com.jp.androidcore.app.animation;
 
-import android.animation.ValueAnimator;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.jp.androidcore.R;
 import com.jp.androidcore.appimplemetation.activity.drawer.AppDrawerActivity;
 import com.jp.androidcore.appimplemetation.fragment.AppFragment;
-import com.jp.androidcore.core.animation.AppearAnimator;
+import com.jp.androidcore.core.animation.FadeOutAnimator;
+import com.jp.androidcore.core.animation.ZoomInAnimator;
+import com.jp.androidcore.core.animation.ZoomOutAnimator;
 
 public class AnimationFragment extends AppFragment<AppDrawerActivity> implements View.OnClickListener {
     private View mAnimationView;
-    private AppearAnimator mAppearAnimation;
+    private ZoomInAnimator mZoomOutAnimator;
+    private FadeOutAnimator mFadeOutAnimator;
 
     @Override
     protected int getFragmentLayoutResource() {
@@ -23,7 +23,8 @@ public class AnimationFragment extends AppFragment<AppDrawerActivity> implements
     protected void bindView(View rootView) {
         mAnimationView = rootView.findViewById(R.id.view_animation);
 
-        rootView.findViewById(R.id.btn_animation_appear).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_animation_zoom_out).setOnClickListener(this);
+        rootView.findViewById(R.id.btn_animation_fade_out).setOnClickListener(this);
     }
 
     @Override
@@ -34,11 +35,17 @@ public class AnimationFragment extends AppFragment<AppDrawerActivity> implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_animation_appear:
-                if(mAppearAnimation == null) {
-                    mAppearAnimation = new AppearAnimator(mAnimationView, "APPEAR");
+            case R.id.btn_animation_zoom_out:
+                if (mZoomOutAnimator == null) {
+                    mZoomOutAnimator = new ZoomInAnimator(mAnimationView);
                 }
-                mAppearAnimation.start();
+                mZoomOutAnimator.start();
+                break;
+            case R.id.btn_animation_fade_out:
+                if (mFadeOutAnimator == null) {
+                    mFadeOutAnimator = new FadeOutAnimator(mAnimationView);
+                }
+                mFadeOutAnimator.start();
                 break;
             default:
                 break;

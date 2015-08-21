@@ -9,6 +9,14 @@ public abstract class BaseAnimator implements Animator.AnimatorListener {
     protected String mTag;
     private Animator mAnimator;
 
+    public BaseAnimator(View view) {
+        mAnimationView = view;
+        mTag = this.getClass().getSimpleName();
+
+        mAnimator = initAnimation(mAnimationView);
+        mAnimator.addListener(this);
+    }
+
     public BaseAnimator(View view, String tag) {
         mAnimationView = view;
         mTag = tag;
